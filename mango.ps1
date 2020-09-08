@@ -1,7 +1,6 @@
 #!/usr/bin/env pwsh
 
 $basedir = Split-Path $MyInvocation.MyCommand.Definition -Parent
-$calldir = ("$PWD").replace("\", "/") #convert to slash seperated
 
 if ($args.Count -eq 0) {
     Write-Host "Mango was not given an option"
@@ -10,18 +9,29 @@ if ($args.Count -eq 0) {
 
 $option, $argv = $args
 
+chdir "$PWD"
+
 switch ($option) {
     "init" {
-        omm init.omm "$calldir/" $argv
+        omm "$basedir/init" $argv
     }
 
     "get" {
-        omm get.omm "$calldir/" $argv
+        omm "$basedir/get" $argv
     }
 
     "rm" {
-        omm rm.omm "$calldir/" $argv
+        omm "$basedir/rm" $argv
     }
+
+    "start" {
+        omm "$basedir/start" $argv
+    }
+
+    "archive" {
+        omm "$basedir/archive" $argv
+    }
+
     default {
         Write-Host "Cannot use $option option"
         exit(1)
@@ -29,4 +39,3 @@ switch ($option) {
 }
 
 exit 0
-

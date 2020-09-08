@@ -1,0 +1,7 @@
+;include:
+;w install/install
+
+var main = fn() {
+    install()
+    exec()
+}
