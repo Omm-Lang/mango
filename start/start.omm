@@ -1,7 +1,7 @@
 ;include:
 ;w install/install
 
-var main = fn() {
-    install()
-    exec()
+var main = fn() => {
+    install:()
+    exec:()
 }

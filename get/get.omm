@@ -1,11 +1,11 @@
 ;include:
-;s ommstd/json
+;s json
 
-var install = fn() => {
+var main = fn() => {
     mango := files.open:("mango.json")
 
     if (!mango.exists()) => {
         log:("Could not find a mango.json file")
-        exit:(1)
+        exit:(1);
     }
 }
