@@ -13,23 +13,23 @@ chdir "$PWD"
 
 switch ($option) {
     "init" {
-        ka "$basedir/init" $argv
+        tusk "$basedir/init" $argv
     }
 
     "get" {
-        ka "$basedir/get" $argv
+        tusk "$basedir/get" $argv
     }
 
     "rm" {
-        ka "$basedir/rm" $argv
+        tusk "$basedir/rm" $argv
     }
 
     "start" {
-        ka "$basedir/start" $argv
+        tusk "$basedir/start" $argv
     }
 
     "archive" {
-        ka "$basedir/archive" $argv
+        tusk "$basedir/archive" $argv
     }
 
     default {
