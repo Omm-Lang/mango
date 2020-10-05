@@ -1,10 +1,10 @@
 ;include:
 ;s json
 
-var main = fn() => {
+var main = fn() {
     mango := files.open:("mango.json")
 
-    if (!mango.exists()) => {
+    if (!mango.exists()) {
         log:("Could not find a mango.json file")
         exit:(1);
     }

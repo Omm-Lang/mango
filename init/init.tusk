@@ -6,14 +6,14 @@ var data = [
     "version": "1.0.0",
 ]
 
-var main = fn() => {
+var main = fn() {
     mango := files.create:("mango.json")
     var attrs = []
 
-    each (data, k, v) => {
+    each (data, k, v) {
         msg := "Enter field " + k
 
-        if (v != "") => msg+=" default \"" + v + "\""
+        if (v != "")msg+=" default \"" + v + "\""
 
         attrs::(k) = input:(msg)
     }
