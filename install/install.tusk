@@ -1,11 +1,18 @@
 ;include:
-;s ommstd/json
+;s tuskstd/json
+;s tuskstd/url
+;s tuskstd/file.tusk
 
 var install = fn() {
-    mango := files.open:("mango.json")
+    mango := file::open:("mango.json") ;open the mango information
+    data := mango::read:() ;read the file
+    jdata := json::parse:(data) ;parse json data
 
-    if (!mango.exists()) {
-        log:("Could not find a mango.json file")
-        exit:(1)
-    }
+    ;get all of the packages
+    ;and write them into the mango installation directory
+    if (jdata::dependencies) { ;dependencies exist
+        each (jdata::dependencies, _, v)
+            oat := request::get:("https://tuskwebsite.tld/mango/packages?name=" + v::name + "&ver=" + v::ver) ;i dont know what the website should be called yet
+    } else log:("Cannot find packages")
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 }

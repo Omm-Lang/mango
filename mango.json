@@ -1,0 +1,9 @@
+{
+    "package": "testing",
+    "dependencies": [
+        {
+            "name": "anki-package",
+            "ver": "1.0.0"
+        }
+    ]
+}
